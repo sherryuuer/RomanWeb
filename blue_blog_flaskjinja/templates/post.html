@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="top">
+        <div class="title"><h1>Love u</h1></div>
+           </div>
+        {% for blog in blogs: %}
+          {% if blog["id"] == blogid: %}
+            <div class="content">
+            <div class="card">
+                <h2>{{ blog["title"] }}</h2>
+                <p>{{ blog["subtitle"] }}</p>
+                <p>{{ blog["body"] }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+</div>
+</body>
+<footer>
+    <p>Made with ♥️ too, in Tokyo.</p>
+</footer>
+</html>
