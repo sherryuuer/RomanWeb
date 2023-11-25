@@ -2,14 +2,15 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# https://news.ycombinator.com/
+# https://news.ycombinator.com/ get the highest score of news!
 response = requests.get("https://news.ycombinator.com/")
 yc_webpages = response.text
 soup = BeautifulSoup(yc_webpages, "html.parser")
 article = soup.find_all(name="span", class_="titleline")
 article_name = []
 article_link = []
-article_score = [int(x.getText().split()[0]) for x in soup.find_all(name="span", class_="score")]
+article_score = [int(x.getText().split()[0])
+                 for x in soup.find_all(name="span", class_="score")]
 
 for element in article:
     name = element.getText()
@@ -25,8 +26,6 @@ top_news = article_name[max_index]
 top_link = article_link[max_index]
 print(top_news)
 print(top_link)
-
-
 
 
 # with open("bs4/website.html", encoding="utf-8") as f:

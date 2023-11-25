@@ -1,0 +1,25 @@
+# ref: https://flask.palletsprojects.com/en/1.1.x/installation/#virtual-environments
+$ mkdir Python-Flask-server
+$ cd Python-Flask-server
+$ python3 -m venv venv
+
+# my:
+$ C:/Users/sherr/AppData/Local/Programs/Python/Python311/python.exe -m venv flask-venv
+# second param is the name of venv
+
+# activate
+$ .\flask-venv\Scripts\activate
+$ deactivate
+↓
+(flask-venv) PS C:\Users\sherr\Desktop\web-development\Python-Flask-server>
+pip install Flask
+
+# run 
+$ flask --app hello run
+
+# get help 
+$ flask --help
+
+# debug mode
+$ flask --app hello --debug run
+$ flask --app personal-site-flask.app --debug run
