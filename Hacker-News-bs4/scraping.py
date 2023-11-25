@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from pprint import pprint
+import json
 
 
 # https://news.ycombinator.com/
@@ -48,5 +49,16 @@ def create_custom_hackernews(links, subtexts, upline):
 
 
 article_link_list, article_subtext_list = get_link_score_list(page_num=2)
-res = create_custom_hackernews(article_link_list, article_subtext_list, 200)
+res = create_custom_hackernews(article_link_list, article_subtext_list, 600)
 pprint(res)
+
+for news in res:
+    data = f'''
+        **Title:** {news['title']}
+        **Score:** {news['score']}
+        **Link:** [LINK]({news['link']})
+        '''
+
+    resp = requests.post("https://ntfy.sh/snews",
+                         data=data)
+    print(resp.status_code)
