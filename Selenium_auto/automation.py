@@ -25,9 +25,10 @@ if 'Selenium Easy' in chrome_browser.page_source:
 
 # button
 # full xpath
-# button = chrome_browser.find_element(
-    # by=By.XPATH, value="/html/body/div[2]/div/div[2]/div[1]/div[2]/form/button")
-button = chrome_browser.find_element(by=By.css, value"btn-primary")
+button = chrome_browser.find_element(
+    by=By.XPATH, value="/html/body/div[2]/div/div[2]/div[1]/div[2]/form/button")
+# OR css selector
+button = chrome_browser.find_element(by=By.CSS_SELECTOR, value=".btn-primary")
 print(button.get_attribute('innerHTML'))  # got the button text
 
 # Enter blank space
@@ -38,4 +39,4 @@ Enter_message.send_keys('Great!')
 button.click()
 
 
-# chrome_browser.quit()  # close the app
+# chrome_browser.quit()  # close the app but need to see the result, so comment outed.
